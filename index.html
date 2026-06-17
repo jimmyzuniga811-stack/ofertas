@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital House | Tecnología al Mejor Precio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+/* Fondo animado */
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
+url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+position:relative;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,
+rgba(0,229,255,.15),
+rgba(124,58,237,.15));
+animation:fondo 8s linear infinite;
+}
+
+@keyframes fondo{
+0%{opacity:.4;}
+50%{opacity:.8;}
+100%{opacity:.4;}
+}
+
+.hero-content{
+position:relative;
+z-index:1;
+animation:subir 2s ease;
+}
+
+@keyframes subir{
+from{
+opacity:0;
+transform:translateY(60px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.logo{
+font-size:85px;
+font-weight:800;
+background:linear-gradient(90deg,#00e5ff,#7c3aed,#00e5ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero h2{
+font-size:30px;
+margin-top:10px;
+}
+
+.hero p{
+max-width:850px;
+margin:20px auto;
+font-size:18px;
+color:#e2e8f0;
+}
+
+.botones{
+margin-top:35px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+margin:10px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:.4s;
+}
+
+.btn-cel{
+background:#00e5ff;
+color:black;
+}
+
+.btn-pc{
+background:#7c3aed;
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-5px) scale(1.05);
+box-shadow:0 0 30px rgba(255,255,255,.4);
+}
+
+.banner{
+margin-top:30px;
+font-size:22px;
+font-weight:bold;
+color:#00e5ff;
+animation:parpadeo 2s infinite;
+}
+
+@keyframes parpadeo{
+50%{
+opacity:.5;
+}
+}
+
+section{
+padding:90px 8%;
+}
+
+.titulo{
+text-align:center;
+font-size:50px;
+margin-bottom:60px;
+color:#00e5ff;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,.07);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:25px;
+overflow:hidden;
+transition:.5s;
+transform-style:preserve-3d;
+}
+
+.card:hover{
+transform:translateY(-12px) rotateX(5deg);
+box-shadow:0 20px 40px rgba(0,229,255,.35);
+}
+
+.card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.card-content{
+padding:25px;
+}
+
+.card h3{
+font-size:25px;
+margin-bottom:10px;
+}
+
+.card p{
+color:#cbd5e1;
+}
+
+.precio{
+font-size:32px;
+font-weight:bold;
+color:#00e5ff;
+margin:15px 0;
+}
+
+.oferta{
+background:#22c55e;
+padding:12px;
+border-radius:12px;
+font-weight:bold;
+text-align:center;
+}
+
+.marcas{
+background:#0f172a;
+text-align:center;
+}
+
+.marcas h2{
+margin-bottom:30px;
+font-size:45px;
+color:#00e5ff;
+}
+
+.logos{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.logo-item{
+padding:15px 25px;
+background:rgba(255,255,255,.08);
+border-radius:15px;
+font-weight:bold;
+transition:.4s;
+}
+
+.logo-item:hover{
+background:#00e5ff;
+color:black;
+transform:scale(1.08);
+}
+
+.promocion{
+background:linear-gradient(135deg,#00e5ff,#7c3aed);
+padding:60px;
+border-radius:30px;
+text-align:center;
+}
+
+.promocion h2{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.promocion p{
+font-size:20px;
+line-height:1.8;
+}
+
+.beneficios{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.beneficio{
+background:rgba(255,255,255,.08);
+padding:30px;
+border-radius:20px;
+text-align:center;
+}
+
+footer{
+background:#020617;
+padding:40px;
+text-align:center;
+margin-top:80px;
+}
+
+footer h2{
+color:#00e5ff;
+margin-bottom:10px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+width:65px;
+height:65px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px;
+text-decoration:none;
+color:white;
+box-shadow:0 0 20px rgba(0,0,0,.5);
+animation:flotar 2s infinite;
+}
+
+@keyframes flotar{
+50%{
+transform:translateY(-10px);
+}
+}
+
+@media(max-width:768px){
+
+.logo{
+font-size:55px;
+}
+
+.hero h2{
+font-size:22px;
+}
+
+.titulo{
+font-size:35px;
+}
+
+.promocion h2{
+font-size:35px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+
+<div class="hero-content">
+
+<h1 class="logo">DIGITAL HOUSE</h1>
+
+<h2>Tecnología que transforma tu mundo</h2>
+
+<p>
+Los mejores celulares y computadoras al mejor precio.
+Ofertas exclusivas, regalos increíbles y garantía en todos nuestros productos.
+</p>
+
+<div class="botones">
+
+<a href="#celulares" class="btn btn-cel">
+📱 Ver Celulares
+</a>
+
+<a href="#computadoras" class="btn btn-pc">
+💻 Ver Computadoras
+</a>
+
+</div>
+
+<div class="banner">
+🔥 HASTA 35% DE DESCUENTO + REGALOS GRATIS 🔥
+</div>
+
+</div>
+
+</header>
+
+<section class="marcas">
+
+<h2>📱 Marcas de Celulares</h2>
+
+<div class="logos">
+<div class="logo-item">Samsung</div>
+<div class="logo-item">Apple</div>
+<div class="logo-item">Xiaomi</div>
+<div class="logo-item">Honor</div>
+<div class="logo-item">Huawei</div>
+<div class="logo-item">Motorola</div>
+<div class="logo-item">LG</div>
+</div>
+
+<br><br>
+
+<h2>💻 Marcas de Computadoras</h2>
+
+<div class="logos">
+<div class="logo-item">Lenovo</div>
+<div class="logo-item">HP</div>
+<div class="logo-item">Dell</div>
+<div class="logo-item">Samsung</div>
+</div>
+
+</section>
+
+<section id="celulares">
+
+<h2 class="titulo">📱 OFERTAS DE CELULARES</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
+<div class="card-content">
+<h3>Samsung Galaxy</h3>
+<p>Potencia, elegancia y tecnología avanzada.</p>
+<div class="precio">L.20,000</div>
+<div class="oferta">🎁 Audífonos Bluetooth Gratis</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e">
+<div class="card-content">
+<h3>iPhone Apple</h3>
+<p>Máximo rendimiento y cámaras profesionales.</p>
+<div class="precio">L.31,200</div>
+<div class="oferta">🎁 Audífonos JBL Gratis</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97">
+<div class="card-content">
+<h3>Xiaomi</h3>
+<p>La mejor relación calidad-precio.</p>
+<div class="precio">L.9,074</div>
+<div class="oferta">🎁 Cargador Rápido + Funda Gratis</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1580910051074-3eb694886505">
+<div class="card-content">
+<h3>Honor</h3>
+<p>Innovación y diseño premium.</p>
+<div class="precio">L.12,974</div>
+<div class="oferta">⌚ Smartwatch Gratis</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf">
+<div class="card-content">
+<h3>Huawei</h3>
+<p>Excelente rendimiento y batería.</p>
+<div class="precio">L.15,576</div>
+<div class="oferta">🎧 Audífonos Inalámbricos Gratis</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f">
+<div class="card-content">
+<h3>Motorola</h3>
+<p>Equipos confiables para cualquier usuario.</p>
+<div class="precio">L.7,780</div>
+<div class="oferta">🎁 Funda + Protector Gratis</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="computadoras">
+
+<h2 class="titulo">💻 OFERTAS DE COMPUTADORAS</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853">
+<div class="card-content">
+<h3>Lenovo</h3>
+<div class="precio">L.20,760</div>
+<div class="oferta">🎁 Mouse Inalámbrico Gratis</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images-na.ssl-images-amazon.com/images/I/71qbqvdlq5L._AC_SL1500_.jpg">
+<div class="card-content">
+<h3>HP</h3>
+<div class="precio">L.23,390</div>
+<div class="oferta">🎒 Mochila para Laptop Gratis</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b">
+<div class="card-content">
+<h3>Dell</h3>
+<div class="precio">L.25,950</div>
+<div class="oferta">⌨️ Teclado y Mouse Gratis</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2">
+<div class="card-content">
+<h3>Samsung</h3>
+<div class="precio">L.23,600</div>
+<div class="oferta">🖥️ Descuento Especial en Mantenimiento y revision (6 Meses)</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="promocion">
+
+<h2>🔥 PROMOCIONES ESTRELLA 🔥</h2>
+
+<p>
+✅ Compra un iPhone y recibe Audífonos JBL GRATIS<br><br>
+
+✅ Compra Samsung Galaxy y recibe Audífonos Bluetooth GRATIS<br><br>
+
+✅ Compra una Laptop HP y recibe Mochila GRATIS<br><br>
+
+✅ Compra una Lenovo y recibe Mouse Inalámbrico GRATIS<br><br>
+
+✅ Hasta 35% de descuento en productos seleccionados<br><br>
+
+✅ Garantía y soporte técnico especializado
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="titulo">⭐ ¿Por Qué Comprar en Digital House?</h2>
+
+<div class="beneficios">
+
+<div class="beneficio">
+<h3>Productos Originales</h3>
+<p>Garantía de calidad en cada compra.</p>
+</div>
+
+<div class="beneficio">
+<h3>Mejores Precios</h3>
+<p>Ofertas exclusivas todos los días.</p>
+</div>
+
+<div class="beneficio">
+<h3>Soporte Técnico</h3>
+<p>Asistencia especializada para clientes.</p>
+</div>
+
+<div class="beneficio">
+<h3>Envíos Seguros</h3>
+<p>Entrega rápida a todo Honduras.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>DIGITAL HOUSE</h2>
+
+<p>📱 WhatsApp: +504 9999-9999</p>
+<p>📍 Honduras</p>
+<p>© 2026 Digital House - Todos los Derechos Reservados</p>
+
+</footer>
+
+<a href="#" class="whatsapp">📞</a>
+
+</body>
+</html>
